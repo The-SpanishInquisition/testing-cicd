@@ -28,7 +28,13 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+      - name: Create Release
+        run: echo 'All done! '
+
+
+
+
   deploy_to_staging:
     name: CI/CD - Staging
     if: ${{ github.ref == 'refs/heads/main' }}
