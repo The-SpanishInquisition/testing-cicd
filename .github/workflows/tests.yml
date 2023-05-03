@@ -4,7 +4,7 @@ jobs:
   deploy_to_development:
     name: CICD - Development
     runs-on: ubuntu-latest
-    if: ${{ github.ref != 'refs/head/main' }}
+    if: ${{ github.ref != 'refs/heads/main' }}
     environment:
       name: Development
       url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
