@@ -43,7 +43,6 @@ jobs:
     needs: start
     environment:
       name: Staging
-      url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     steps:
       - name: Checkout
         uses: actions/checkout@v3
