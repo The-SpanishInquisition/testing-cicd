@@ -1,4 +1,4 @@
-name: Development Continuous Integration(CI)
+name: Release New Version
 on: [push, pull_request]
 jobs:
 
@@ -29,13 +29,6 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm install
-      - name: Run tests and collect coverage
-        run: npm run test
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: coverage/lcov.info
-          token: ${{ secrets.CODECOV_TOKEN }}
   deploy_to_staging:
     name: CI/CD - Staging
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -52,13 +45,6 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm install
-      - name: Run tests and collect coverage
-        run: npm run test
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: coverage/lcov.info
-          token: ${{ secrets.CODECOV_TOKEN }}
   deploy_to_production:
     name: CI/CD - Production
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -76,10 +62,3 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm install
-      - name: Run tests and collect coverage
-        run: npm run test
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: coverage/lcov.info
-          token: ${{ secrets.CODECOV_TOKEN }}
