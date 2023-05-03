@@ -1,10 +1,22 @@
 name: Development Continuous Integration(CI)
 on: [push, pull_request]
 jobs:
+
+  start:
+    name: Starting 🐼🐼🐼
+    runs-on: ubuntu-latest
+    steps:
+    - name: Starting
+      id: init
+      run: |
+        echo "Starting CI/CD of ${{ github.repository }}"
+
+
   deploy_to_development:
     name: CICD - Development
     runs-on: ubuntu-latest
     if: ${{ github.ref != 'refs/heads/main' }}
+    needs: start
     environment:
       name: Development
       url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
@@ -30,6 +42,30 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Staging
+      url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests and collect coverage
+        run: npm run test
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage/lcov.info
+          token: ${{ secrets.CODECOV_TOKEN }}
+  deploy_to_production:
+    name: CICD - Production
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    needs: start
+    environment:
+      name: Production
       url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     steps:
       - name: Checkout
