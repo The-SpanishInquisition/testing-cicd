@@ -24,6 +24,7 @@ jobs:
         with:
           files: coverage/lcov.info
           token: ${{ secrets.CODECOV_TOKEN }}
+  
   deploy_to_staging:
     name: CICD - Staging
     runs-on: ubuntu-latest
