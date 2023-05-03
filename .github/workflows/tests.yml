@@ -13,7 +13,7 @@ jobs:
 
 
   deploy_to_development:
-    name: CICD - Development
+    name: CI/CD - Development
     runs-on: ubuntu-latest
     if: ${{ github.ref != 'refs/heads/main' }}
     needs: start
@@ -37,7 +37,7 @@ jobs:
           files: coverage/lcov.info
           token: ${{ secrets.CODECOV_TOKEN }}
   deploy_to_staging:
-    name: CICD - Staging
+    name: CI/CD - Staging
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     needs: start
@@ -61,7 +61,7 @@ jobs:
           files: coverage/lcov.info
           token: ${{ secrets.CODECOV_TOKEN }}
   deploy_to_production:
-    name: CICD - Production
+    name: CI/CD - Production
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     needs: deploy_to_staging
