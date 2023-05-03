@@ -4,6 +4,7 @@ jobs:
   deploy_to_staging:
     name: CICD - Staging
     if: ${{ github.ref == 'refs/head/main' }}
+    else: echo ${{github.ref}}
     runs-on: ubuntu-latest
     environment:
       name: Staging
