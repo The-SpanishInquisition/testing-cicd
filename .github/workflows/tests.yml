@@ -1,4 +1,4 @@
-name: Codecov Jest Test Workflow
+name: Continous Integration(CI) - Development 
 on: [push, pull_request]
 jobs:
   run:
