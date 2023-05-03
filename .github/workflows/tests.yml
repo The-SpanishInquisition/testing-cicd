@@ -1,9 +1,36 @@
 name: Development Continuous Integration(CI)
 on: [push, pull_request]
 jobs:
-  Test_Codebase:
+  deploy_to_development:
+    name: CICD - Development
     runs-on: ubuntu-latest
-    environment: Development
+    if: {{ github.ref != 'refs/head/main' }}
+    environment:
+      name: Development
+      url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests and collect coverage
+        run: npm run test
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage/lcov.info
+          token: ${{ secrets.CODECOV_TOKEN }}
+  deploy_to_staging:
+    name: CICD - Staging
+    runs-on: ubuntu-latest
+    if: {{ github.ref == 'refs/head/main' }}
+    environment:
+      name: Staging
+      url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     steps:
       - name: Checkout
         uses: actions/checkout@v3
