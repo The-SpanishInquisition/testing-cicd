@@ -3,8 +3,8 @@ on: [push, pull_request]
 jobs:
   deploy_to_staging:
     name: CICD - Staging
-    runs-on: ubuntu-latest
     if: {{ github.ref == 'refs/head/main' }}
+    runs-on: ubuntu-latest
     environment:
       name: Staging
       url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
