@@ -1,4 +1,4 @@
-name: Continous Integration(CI) - Development 
+name: Development Continous Integration(CI) - Tests
 on: [push, pull_request]
 jobs:
   run:
