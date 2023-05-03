@@ -1,7 +1,7 @@
-name: Development Continous Integration(CI) - Tests
+name: Development Continuous Integration(CI)
 on: [push, pull_request]
 jobs:
-  run:
+  Test Codebase:
     runs-on: ubuntu-latest
     environment: Development
     steps:
