@@ -4,16 +4,16 @@
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/The-SpanishInquisition/testing-cicd"
+    "url": "https://github.com/COS301-SE-2023/AI-Photo-Editor"
   },
   "author": {
-    "name": "SharkmanZA",
+    "name": "TopG",
     "email": "cos301.spanish.inquisition@gmail.com",
-    "url": ""
+    "url": "https://github.com/COS301-SE-2023/AI-Photo-Editor"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/The-SpanishInquisition/testing-cicd/issues"
+    "url": "https://github.com/COS301-SE-2023/AI-Photo-Editor/issues"
   },
   "keywords": [
     "electron",
@@ -26,7 +26,7 @@
     "electron-updater",
     "rollup"
   ],
-  "homepage": "https://github.com/The-SpanishInquisition/testing-cicd#readme",
+  "homepage": "https://github.com/COS301-SE-2023/AI-Photo-Editor#readme",
   "main": "build/index.js",
   "scripts": {
     "prestart": "cross-env NODE_ENV=development node scripts/preBuild.js",
@@ -140,8 +140,8 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "SharkmanZA",
-        "repo": "testing-cicd"
+        "owner": "fuzzc0re",
+        "repo": "electron-svelte-typescript"
       }
     ]
   }
