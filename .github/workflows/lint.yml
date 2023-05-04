@@ -1,0 +1,55 @@
+name: Lint Codebase
+
+on: [ push, pull_request ]
+
+jobs:
+  start:
+    name: Start State
+    runs-on: ubuntu-latest
+    steps:
+    - name: Starting
+      id: init
+      run: |
+        echo "Starting linting of ${{ github.repository }}"
+
+  lint_frontend:
+    name: Lint Frontend
+    runs-on: ubuntu-latest
+    needs: start
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Lint Frontend
+        run: npm run lint:svelte
+
+  lint_electron:
+    name: Lint Electron
+    runs-on: ubuntu-latest
+    needs: start
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Lint Frontend
+        run: npm run lint:electron
+
+  start:
+    name: End State
+    runs-on: ubuntu-latest
+    needs: lint_frontend, lint_electron
+    steps:
+    - name: Starting
+      id: init
+      run: |
+        echo "Starting linting of ${{ github.repository }}"
