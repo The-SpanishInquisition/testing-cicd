@@ -1,0 +1,17 @@
+TN:
+SF:tests/test1.ts
+FN:2,firstTest
+FN:6,secondTest
+FNF:2
+FNH:2
+FNDA:1,firstTest
+FNDA:1,secondTest
+DA:2,1
+DA:3,1
+DA:6,1
+DA:7,1
+LF:4
+LH:4
+BRF:0
+BRH:0
+end_of_record
