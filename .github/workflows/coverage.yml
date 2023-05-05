@@ -9,7 +9,7 @@ jobs:
     name: Start State
     runs-on: ubuntu-latest
     steps:
-    - name: Starting
+    - name: Starting 🚀🚀🚀
       id: init
       run: |
         echo "Starting linting of ${{ github.repository }}"
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: run_all_tests
     steps:
-    - name: Ending
+    - name: Ending ✅✅✅
       id: init
       run: |
         echo "Ending linting of ${{ github.repository }}"
