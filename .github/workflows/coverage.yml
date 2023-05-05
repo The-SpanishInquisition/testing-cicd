@@ -33,8 +33,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Run tests and collect coverage
         run: npm run test
       - name: Upload coverage to Codecov
