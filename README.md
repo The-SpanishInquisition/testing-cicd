@@ -1,6 +1,7 @@
 [![codecov](https://codecov.io/gh/The-SpanishInquisition/testing-cicd/branch/main/graph/badge.svg?token=mQU7hGS1SC)](https://codecov.io/gh/The-SpanishInquisition/testing-cicd)
 
 [![Lint Codebase](https://github.com/The-SpanishInquisition/testing-cicd/actions/workflows/lint.yml/badge.svg)](https://github.com/The-SpanishInquisition/testing-cicd/actions/workflows/lint.yml)
+[![Test Codebase](https://github.com/The-SpanishInquisition/testing-cicd/actions/workflows/coverage.yml/badge.svg)](https://github.com/The-SpanishInquisition/testing-cicd/actions/workflows/coverage.yml)
 
 
 
