@@ -46,7 +46,7 @@ jobs:
       - name: Run tests and collect coverage
         run: npm run test
       - name: Upload coverage to Codecov
-        if: ${{ runner.os == 'macOS-latest' }}
+        if: ${{ runner.os == 'macOS' }}
         uses: codecov/codecov-action@v3
         with:
           files: coverage/lcov.info
