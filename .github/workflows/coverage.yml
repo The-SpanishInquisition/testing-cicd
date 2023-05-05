@@ -6,8 +6,8 @@ on:
   pull_request:
     branches: [ master, dev ]
     types: [opened, synchronize, reopened, ready_for_review]
-  permissions:
-    contents: read
+permissions:
+  contents: read
 
 jobs:
   start:
